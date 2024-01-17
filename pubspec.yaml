@@ -1,0 +1,94 @@
+name: gamify
+description: A new Flutter project.
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.0.5 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  overlay_support: ^2.1.0
+  soundpool: ^2.3.0
+  intl: any
+  flutter_localization: any
+  cupertino_icons: ^1.0.5
+  hive_flutter: ^1.1.0
+  shared_preferences: ^2.1.2
+  provider: ^6.0.5
+  flutter_carousel_slider: ^1.1.0
+  hive: ^2.2.3
+  hive_generator: ^2.0.0
+  path_provider: ^2.0.15
+  audioplayers:
+  flame_forge2d:
+  flame:
+  flame_audio:
+  bonfire: ^3.2.0
+  flame_splash_screen: ^0.1.0
+  lottie: ^1.4.1
+  rating_dialog:
+  share_plus: ^4.0.10+1
+  share: ^2.0.4
+  firebase_core: ^2.15.0
+  firebase_auth:
+  google_sign_in: ^6.1.4
+  sign_in_with_apple: ^5.0.0
+  cloud_firestore: any
+  ionicons: ^0.2.2
+  google_fonts:
+  infinite_carousel: ^1.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    #pacman
+    - assets/pacman/images/
+    #spacescape
+    - assets/images/
+    #tetris
+    - assets/tetris/assets/
+    - assets/tetris/assets/audios/
+    #jumper
+    - assets/
+    #main images
+    - assets/mainimages/
+    #dungeon
+    - assets/images/
+    - assets/images/emote/
+    - assets/images/npc/
+    - assets/images/enemy/
+    - assets/images/enemy/goblin/
+    - assets/images/enemy/imp/
+    - assets/images/enemy/mini_boss/
+    - assets/images/enemy/boss/
+    - assets/images/player/
+    - assets/images/items/
+    - assets/images/tiled/
+    - assets/audio/
+    #dino
+    - assets/images/dino/
+    - assets/images/cacti/
+    - assets/images/ptera/
+
+  fonts:
+    - family: BungeeInline
+      fonts:
+        - asset: assets/spacescape/fonts/BungeeInline/BungeeInline-Regular.ttf
+
+    - family: DaveysDoodleface
+      fonts:
+        - asset: fonts/DaveysDoodleface.ttf
+    - family: Normal
+      fonts:
+        - asset: fonts/font_pixel.ttf
+
+    - family: Magic4
+      fonts:
+        - asset: assets/fonts/DiloWorld-mLJLv.ttf

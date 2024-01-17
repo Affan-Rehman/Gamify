@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "252299321426",
+    "project_id": "gamify-2ad21",
+    "storage_bucket": "gamify-2ad21.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252299321426:android:05069aa2ed6e7668e63f8b",
+        "android_client_info": {
+          "package_name": "com.example.gamify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252299321426-cr0lv93k8478it52c24g0j252din62ur.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gamify",
+            "certificate_hash": "b017dc95fb1ff0bef74b61e5711fbfd99ba935b5"
+          }
+        },
+        {
+          "client_id": "252299321426-42opgmcp9abbsjcjdf4hten035utk9qh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaWF7sg4KcjxB5WTa9vchR8eOpNIybfc0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252299321426-42opgmcp9abbsjcjdf4hten035utk9qh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "252299321426-dlos2caakdu86ihmm324pfjv8uk7r7mq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gamify"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
