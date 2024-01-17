@@ -1,3 +1,0 @@
-
-
-double tileSize = 32;

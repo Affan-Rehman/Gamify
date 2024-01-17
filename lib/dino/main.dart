@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:gamify/jumper/sounds.dart';
+import 'package:gamify/dino/sounds.dart';
 import 'cactus.dart';
 import 'cloud.dart';
 import 'dino.dart';
@@ -51,7 +51,7 @@ class _MyHomePageState extends State<DinoScreen>
   @override
   void initState() {
     super.initState();
-    JumperSounds.jumper();
+    DinoSounds.jumper();
     playing = true;
     worldController =
         AnimationController(vsync: this, duration: const Duration(days: 99));
@@ -60,9 +60,9 @@ class _MyHomePageState extends State<DinoScreen>
   }
 
   void _die() {
-    JumperSounds.stopJumper();
+    DinoSounds.stopJumper();
     playing = false;
-    JumperSounds.fall();
+    DinoSounds.fall();
     setState(() {
       worldController.stop();
       dino.die();
@@ -70,7 +70,7 @@ class _MyHomePageState extends State<DinoScreen>
   }
 
   void _newGame() {
-    JumperSounds.jumper();
+    DinoSounds.jumper();
     playing = true;
     setState(() {
       highScore = max(highScore, runDistance.toInt());
@@ -189,7 +189,7 @@ class _MyHomePageState extends State<DinoScreen>
     runVelocityController.dispose();
     worldController.dispose();
     dayNightOffestController.dispose();
-    JumperSounds.stopJumper();
+    DinoSounds.stopJumper();
     super.dispose();
   }
 

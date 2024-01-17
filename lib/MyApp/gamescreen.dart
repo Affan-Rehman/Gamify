@@ -6,9 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gamify/MyApp/loginscreen.dart';
 import 'package:gamify/dino/main.dart';
-import 'package:gamify/dungeon/menu.dart';
 import 'package:gamify/flappybird/Layouts/Pages/page_start_screen.dart';
-import 'package:gamify/jumper/navigation/routes.dart';
 import 'package:gamify/minesweeper/game_activity.dart';
 import 'package:gamify/pacman/HomePage.dart';
 import 'package:gamify/pacman/sounds.dart';
@@ -19,24 +17,20 @@ import 'package:hive/hive.dart';
 import 'package:infinite_carousel/infinite_carousel.dart';
 
 import '../chess/gameBoard.dart';
-import '../dungeon/util/sounds.dart';
-import '../jumper/assets.dart';
-import '../jumper/high_scores.dart';
-import '../jumper/sounds.dart';
-import '../jumper/ui/main_menu_screen.dart';
+import '../dino/sounds.dart';
 import '../main.dart';
 
 class GameScreen extends StatelessWidget {
   GameScreen({super.key});
   List<MyCard> cards = [
-    MyCard(
-      "assets/mainimages/dungeonmaster.png",
-      LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: const [Color(0xFFA170BA), Color(0xFF0D161F)],
-      ),
-    ),
+    // MyCard(
+    //   "assets/mainimages/dungeonmaster.png",
+    //   LinearGradient(
+    //     begin: Alignment.topCenter,
+    //     end: Alignment.bottomCenter,
+    //     colors: const [Color(0xFFA170BA), Color(0xFF0D161F)],
+    //   ),
+    // ),
     MyCard(
         "assets/mainimages/dinomaster.png",
         LinearGradient(
@@ -55,14 +49,14 @@ class GameScreen extends StatelessWidget {
         colors: const [Color(0xFFCE69FE), Color(0xFF0D161F)],
       ),
     ),
-    MyCard(
-      "assets/mainimages/jumpmaster.png",
-      LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: const [Color(0xFF21C6FF), Color(0xFF0D161F)],
-      ),
-    ),
+    // MyCard(
+    //   "assets/mainimages/jumpmaster.png",
+    //   LinearGradient(
+    //     begin: Alignment.topCenter,
+    //     end: Alignment.bottomCenter,
+    //     colors: const [Color(0xFF21C6FF), Color(0xFF0D161F)],
+    //   ),
+    // ),
     MyCard(
       "assets/mainimages/tetrix.png",
       LinearGradient(
@@ -108,56 +102,36 @@ class GameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     cards[0].function = () async {
-      if (!kIsWeb) {
-        await Flame.device.setLandscape();
-        await Flame.device.fullScreen();
-      }
-
-      await Sounds.initialize();
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => DungeonScreen()));
-    };
-    cards[1].function = () async {
-      await JumperSounds.start();
+      await DinoSounds.start();
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const DinoScreen()));
     };
-    cards[2].function = () {
+    cards[1].function = () {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => MineSweeperScreen()));
     };
-    cards[3].function = () async {
-      await Flame.device.fullScreen();
-      if (!loadedScore && !loadedAssets) {
-        await HighScores.load();
-        await Assets.load();
-      }
-      await JumperSounds.start();
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const JumperScreen()));
-    };
-    cards[4].function = () {
+    cards[2].function = () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => TetrisScreen()));
     };
-    cards[5].function = () async {
+    cards[3].function = () async {
       await Hive.openBox('user');
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const FlappyScreen()));
     };
-    cards[6].function = () async {
+    cards[4].function = () async {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const Spacescape()));
 
       await Flame.device.fullScreen();
       await AudioPlayerComponent.start();
     };
-    cards[7].function = () async {
+    cards[5].function = () async {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => PacmanScreen()));
       await PacmanSounds.start();
     };
-    cards[8].function = () {
+    cards[6].function = () {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const ChessScreen()));
     };
@@ -167,7 +141,6 @@ class GameScreen extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'BungeeInLine',
       ),
-      onGenerateRoute: Routes.routes,
       debugShowCheckedModeBanner: false,
       home: Builder(builder: (context) {
         return SafeArea(
