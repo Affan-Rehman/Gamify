@@ -149,86 +149,17 @@ class GameScreen extends StatelessWidget {
               children: [
                 CardsList(cards),
                 Positioned(
-                  top: 16, // Position at the top
-                  left: 0, // Align to the left
-                  right: 0, // Align to the right
+                  top: 16,
+                  left: 0,
+                  right: 0,
                   child: Center(
                     child: Image.asset(
                       "assets/gamify_icon.png",
-                      width: 50, // Adjust the width as needed
-                      height: 50, // Adjust the height as needed
+                      width: 50,
+                      height: 50,
                     ),
                   ),
                 ),
-                Positioned(
-                    top: 16, // Adjust the top position as needed
-                    left: 16, // Adjust the left position as needed
-                    child: FirebaseAuth.instance.currentUser != null
-                        ? ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black.withOpacity(
-                                  0.7), // Remove the default background color
-                              padding: EdgeInsets.all(
-                                  16.0), // Add padding around the button
-                              elevation: 20, // Remove the default elevation
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                    10.0), // Rounded corners
-                                side: BorderSide(
-                                  color: Colors.white.withOpacity(
-                                      0.3), // Add a border with a white color
-                                  width: 2.0,
-                                ),
-                              ),
-                            ),
-                            onPressed: () {
-                              FirebaseAuth.instance.signOut();
-                              Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const LoginScreen(),
-                                ),
-                                (route) => false,
-                              );
-                            },
-                            child: const Icon(
-                              Icons.logout,
-                              size: 30,
-                            ),
-                          )
-                        : ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black.withOpacity(
-                                  0.7), // Remove the default background color
-                              padding: EdgeInsets.all(
-                                  16.0), // Add padding around the button
-                              elevation: 20, // Remove the default elevation
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                    10.0), // Rounded corners
-                                side: BorderSide(
-                                  color: Colors.white.withOpacity(
-                                      0.3), // Add a border with a white color
-                                  width: 2.0,
-                                ),
-                              ),
-                            ),
-                            onPressed: () {
-                              Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const LoginScreen(),
-                                ),
-                                (route) => false,
-                              );
-                            },
-                            child: Icon(
-                              Icons.arrow_back,
-                              size: 30,
-                              color: Colors
-                                  .white, // Change the color of the icon to white
-                            ),
-                          )),
               ],
             ),
           ),
@@ -275,8 +206,7 @@ class _CardsListState extends State<CardsList> {
         onIndexChanged: (newIndex) {
           setState(() {
             selectedIndex = newIndex;
-            currentGradient =
-                widget.cards[newIndex].gradient; // Update gradient
+            currentGradient = widget.cards[newIndex].gradient;
           });
         },
         itemBuilder: (context, itemIndex, realIndex) {
@@ -288,13 +218,17 @@ class _CardsListState extends State<CardsList> {
 
           return GestureDetector(
             onTap: () {
-              card.function(); // Execute the onTap callback
+              card.function();
             },
             child: AnimatedContainer(
-              duration: Duration(milliseconds: 300), // Animation duration
-              curve: Curves.easeInOut, // Animation curve
+              duration: Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
               transform: Matrix4.identity()
-                ..scale(targetScale), // Apply scaling
+                ..scale(targetScale)
+                ..translate(
+                  (MediaQuery.of(context).size.width * (1 - targetScale)) / 2,
+                  0.0,
+                ),
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
