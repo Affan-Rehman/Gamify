@@ -27,12 +27,15 @@ class TetrisScreen extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        appBar: AppBar(backgroundColor: BACKGROUND_COLOR,
+        appBar: AppBar(
+          backgroundColor: BACKGROUND_COLOR,
           leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: Icon(Icons.arrow_back_ios)),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_ios),
+            color: Colors.white,
+          ),
         ),
         body: Sound(child: Game(child: KeyboardController(child: _HomePage()))),
       ),

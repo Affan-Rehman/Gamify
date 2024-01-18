@@ -5,6 +5,8 @@ import 'package:flame/flame.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gamify/MyApp/loginscreen.dart';
+import 'package:gamify/dungeon/app.dart';
+import '../dungeon/injection_container.dart' as di;
 import 'package:gamify/dino/main.dart';
 import 'package:gamify/flappybird/Layouts/Pages/page_start_screen.dart';
 import 'package:gamify/minesweeper/game_activity.dart';
@@ -23,14 +25,6 @@ import '../main.dart';
 class GameScreen extends StatelessWidget {
   GameScreen({super.key});
   List<MyCard> cards = [
-    // MyCard(
-    //   "assets/mainimages/dungeonmaster.png",
-    //   LinearGradient(
-    //     begin: Alignment.topCenter,
-    //     end: Alignment.bottomCenter,
-    //     colors: const [Color(0xFFA170BA), Color(0xFF0D161F)],
-    //   ),
-    // ),
     MyCard(
         "assets/mainimages/dinomaster.png",
         LinearGradient(
@@ -96,7 +90,15 @@ class GameScreen extends StatelessWidget {
         end: Alignment.bottomCenter,
         colors: const [Color(0xFFA5ADB0), Color(0xFF0D161F)],
       ),
-    )
+    ),
+    MyCard(
+      "assets/mainimages/dungeonmaster.png",
+      LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: const [Color(0xFFA170BA), Color(0xFF0D161F)],
+      ),
+    ),
   ];
 
   @override
@@ -134,6 +136,15 @@ class GameScreen extends StatelessWidget {
     cards[6].function = () {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const ChessScreen()));
+    };
+    cards[7].function = () async {
+      if (!kIsWeb) {
+        await Flame.device.fullScreen();
+        await Flame.device.setPortrait();
+      }
+      di.init();
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => DungeonScreen()));
     };
     context = context;
     screenSizeActual = MediaQuery.of(context).size;

@@ -13,7 +13,9 @@ class PacmanScreen extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
+
 bool game = true;
+
 class _HomePageState extends State<PacmanScreen> {
   static int numberInRow = 11;
   int numberOfSquares = numberInRow * 16;
@@ -26,7 +28,7 @@ class _HomePageState extends State<PacmanScreen> {
   var controller;
   int score = 0;
   bool paused = false;
-  late Timer timer,timer2,timer3;
+  late Timer timer, timer2, timer3;
   List<int> barriers = [
     0,
     1,
@@ -129,7 +131,7 @@ class _HomePageState extends State<PacmanScreen> {
   String ghostLast = "left";
   String ghostLast2 = "left";
   String ghostLast3 = "down";
-@override
+  @override
   void dispose() {
     timer.cancel();
     timer2.cancel();
@@ -137,72 +139,72 @@ class _HomePageState extends State<PacmanScreen> {
     game = false;
     super.dispose();
   }
+
   @override
   void initState() {
     game = true;
     super.initState();
   }
+
   void startGame() {
     if (preGame) {
       PacmanSounds.begin();
       preGame = false;
-      
+
       getFood();
 
-       timer= Timer.periodic(const Duration(milliseconds: 10), (timer) {
-        if(game){
-        if (player == ghost || player == ghost2 || player == ghost3) {
-          
-          PacmanSounds.death();
-          setState(() {
-            player = -1;
-          });
-          showDialog(
-              barrierDismissible: false,
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  title: const Center(child: Text("Game Over!")),
-                  content: Text("Your Score : $score"),
-                  actions: [
-                    ElevatedButton(
-                      onPressed: () {
-                        PacmanSounds.begin();
-                        setState(() {
-                          player = numberInRow * 14 + 1;
-                          ghost = numberInRow * 2 - 2;
-                          ghost2 = numberInRow * 9 - 1;
-                          ghost3 = numberInRow * 11 - 2;
-                          paused = false;
-                          preGame = false;
-                          mouthClosed = false;
-                          direction = "right";
-                          food.clear();
-                          getFood();
-                          score = 0;
-                          Navigator.pop(context);
-                        });
-                      },
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: <Color>[
-                              Color(0xFF0D47A1),
-                              Color(0xFF1976D2),
-                              Color(0xFF42A5F5),
-                            ],
+      timer = Timer.periodic(const Duration(milliseconds: 10), (timer) {
+        if (game) {
+          if (player == ghost || player == ghost2 || player == ghost3) {
+            PacmanSounds.death();
+            setState(() {
+              player = -1;
+            });
+            showDialog(
+                barrierDismissible: false,
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Center(child: Text("Game Over!")),
+                    content: Text("Your Score : $score"),
+                    actions: [
+                      ElevatedButton(
+                        onPressed: () {
+                          PacmanSounds.begin();
+                          setState(() {
+                            player = numberInRow * 14 + 1;
+                            ghost = numberInRow * 2 - 2;
+                            ghost2 = numberInRow * 9 - 1;
+                            ghost3 = numberInRow * 11 - 2;
+                            paused = false;
+                            preGame = false;
+                            mouthClosed = false;
+                            direction = "right";
+                            food.clear();
+                            getFood();
+                            score = 0;
+                            Navigator.pop(context);
+                          });
+                        },
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: <Color>[
+                                Color(0xFF0D47A1),
+                                Color(0xFF1976D2),
+                                Color(0xFF42A5F5),
+                              ],
+                            ),
                           ),
+                          padding: const EdgeInsets.all(10.0),
+                          child: const Text('Restart'),
                         ),
-                        padding: const EdgeInsets.all(10.0),
-                        child: const Text('Restart'),
-                      ),
-                    )
-                  ],
-                );
-              });
-        
+                      )
+                    ],
+                  );
+                });
+          }
         }
-       }
       });
       timer2 = Timer.periodic(const Duration(milliseconds: 250), (timer) {
         if (!paused) {
@@ -601,10 +603,12 @@ class _HomePageState extends State<PacmanScreen> {
           backgroundColor: Colors.black,
           toolbarHeight: MediaQuery.of(context).size.height * 0.05,
           leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(Icons.arrow_back))),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back),
+            color: Colors.white,
+          )),
       backgroundColor: Colors.black,
       body: Column(
         children: [
@@ -717,14 +721,10 @@ class _HomePageState extends State<PacmanScreen> {
                     ),
                     onTap: () => {
                       if (!paused)
-                        {
-                          paused = true,
-                            PacmanSounds.intermission()
-                        }
+                        {paused = true, PacmanSounds.intermission()}
                       else
                         {
                           paused = false,
-                            
                         },
                       const Icon(
                         Icons.play_arrow,
@@ -744,7 +744,7 @@ class _HomePageState extends State<PacmanScreen> {
                       else
                         {
                           paused = true,
-                            PacmanSounds.intermission(),
+                          PacmanSounds.intermission(),
                         },
                     },
                   ),
