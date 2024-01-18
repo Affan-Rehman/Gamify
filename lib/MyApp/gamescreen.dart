@@ -4,7 +4,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flame/flame.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:gamify/MyApp/loginscreen.dart';
+import 'package:gamify/balloon/main.dart';
 import 'package:gamify/dungeon/app.dart';
 import '../dungeon/injection_container.dart' as di;
 import 'package:gamify/dino/main.dart';
@@ -43,14 +45,6 @@ class GameScreen extends StatelessWidget {
         colors: const [Color(0xFFCE69FE), Color(0xFF0D161F)],
       ),
     ),
-    // MyCard(
-    //   "assets/mainimages/jumpmaster.png",
-    //   LinearGradient(
-    //     begin: Alignment.topCenter,
-    //     end: Alignment.bottomCenter,
-    //     colors: const [Color(0xFF21C6FF), Color(0xFF0D161F)],
-    //   ),
-    // ),
     MyCard(
       "assets/mainimages/tetrix.png",
       LinearGradient(
@@ -99,6 +93,14 @@ class GameScreen extends StatelessWidget {
         colors: const [Color(0xFFA170BA), Color(0xFF0D161F)],
       ),
     ),
+    MyCard(
+      "assets/mainimages/jumpmaster.png",
+      LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: const [Color(0xFF21C6FF), Color(0xFF0D161F)],
+      ),
+    ),
   ];
 
   @override
@@ -145,6 +147,14 @@ class GameScreen extends StatelessWidget {
       di.init();
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => DungeonScreen()));
+    };
+    cards[8].function = () async {
+      WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+      FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+      di.init();
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => BalloonGame()));
+      FlutterNativeSplash.remove();
     };
     context = context;
     screenSizeActual = MediaQuery.of(context).size;

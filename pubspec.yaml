@@ -44,6 +44,8 @@ dependencies:
   get_it: ^7.6.7
   flame_tiled: ^1.18.3
   equatable: ^2.0.5
+  flutter_native_splash: ^2.3.9
+  gap: ^3.0.1
 
 dev_dependencies:
   flutter_test:
