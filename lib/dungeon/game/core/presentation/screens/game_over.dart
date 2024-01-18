@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gamify/MyApp/gamescreen.dart';
 
 import '../../../../injection_container.dart';
 import '../../../features/player/bloc/health/health_bloc.dart';
@@ -66,7 +67,6 @@ class GameOverScreen extends StatelessWidget {
             BlocBuilder<ScoreBloc, ScoreState>(
               bloc: sl<ScoreBloc>(),
               builder: (context, state) {
-                
                 return Text(
                   'Score: ${state.score}',
                   style: const TextStyle(
@@ -96,6 +96,20 @@ class GameOverScreen extends StatelessWidget {
                   ),
                 );
               },
+            ),
+            const SizedBox(height: 32),
+            PixelButton(
+              text: 'Exit',
+              icon: const Icon(
+                Icons.exit_to_app,
+                color: Colors.white,
+              ),
+              onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(
+                  builder: (context) => GameScreen(),
+                ),
+                (routes) => false,
+              ),
             ),
           ],
         ),

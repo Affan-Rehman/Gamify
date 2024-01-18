@@ -189,7 +189,7 @@ class MyCard {
 
 class CardsList extends StatefulWidget {
   List<MyCard> cards;
-  CardsList(this.cards);
+  CardsList(this.cards, {super.key});
 
   @override
   State<CardsList> createState() => _CardsListState();
