@@ -94,7 +94,7 @@ class GameScreen extends StatelessWidget {
       ),
     ),
     MyCard(
-      "assets/mainimages/jumpmaster.png",
+      "assets/mainimages/balloon.png",
       LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,

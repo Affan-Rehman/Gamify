@@ -18,7 +18,7 @@ class Menu extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.all(20.0),
               child: Text(
-                'Pixel Adventure',
+                'Dungeon Master',
                 style: TextStyle(
                   fontFamily: 'PixelifySans',
                   fontSize: 64,
