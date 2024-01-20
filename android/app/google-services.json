@@ -7,20 +7,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:252299321426:android:05069aa2ed6e7668e63f8b",
+        "mobilesdk_app_id": "1:252299321426:android:03daed2f8caa249de63f8b",
         "android_client_info": {
-          "package_name": "com.example.gamify"
+          "package_name": "com.affan.gamify"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "252299321426-cr0lv93k8478it52c24g0j252din62ur.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.gamify",
-            "certificate_hash": "b017dc95fb1ff0bef74b61e5711fbfd99ba935b5"
-          }
-        },
         {
           "client_id": "252299321426-42opgmcp9abbsjcjdf4hten035utk9qh.apps.googleusercontent.com",
           "client_type": 3

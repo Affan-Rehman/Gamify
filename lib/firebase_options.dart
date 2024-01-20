@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDaWF7sg4KcjxB5WTa9vchR8eOpNIybfc0',
-    appId: '1:252299321426:android:05069aa2ed6e7668e63f8b',
+    appId: '1:252299321426:android:03daed2f8caa249de63f8b',
     messagingSenderId: '252299321426',
     projectId: 'gamify-2ad21',
     storageBucket: 'gamify-2ad21.appspot.com',
@@ -59,11 +59,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyASqQlq2bJHYhd-lho34ptt4RUkd_oIKnI',
-    appId: '1:252299321426:ios:5e38d3f6ecda01bfe63f8b',
+    appId: '1:252299321426:ios:138f64a50da24829e63f8b',
     messagingSenderId: '252299321426',
     projectId: 'gamify-2ad21',
     storageBucket: 'gamify-2ad21.appspot.com',
-    iosClientId: '252299321426-dlos2caakdu86ihmm324pfjv8uk7r7mq.apps.googleusercontent.com',
-    iosBundleId: 'com.example.gamify',
+    androidClientId: '252299321426-2gijcuhi4uitpqopombqh8bge6l9dt1g.apps.googleusercontent.com',
+    iosClientId: '252299321426-klui1gc1pklro3899vpldecm4eisbug5.apps.googleusercontent.com',
+    iosBundleId: 'com.affan.gamify',
   );
 }
